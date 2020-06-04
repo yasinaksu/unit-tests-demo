@@ -13,6 +13,9 @@ namespace ShoppingCart
         1-sepete ürün eklenebilmelidir.
         2-sepette olan ürün çıkarılabilmelidir.
         3-sepet temizlenebilmelidir.
+
+        4-sepette olan üründen 1 adet eklendiğinde sepetteki toplam ürün adeti 1 artmalı eleman sayısı aynı kalmalıdır
+        5-sepete farklı üründen 1 adet eklendiğinde sepetteki toplam ürün adeti ve eleman sayısı 1 er artmalıdır.
         */
         private readonly List<CartItem> _cartItems;
         public CartManager()
