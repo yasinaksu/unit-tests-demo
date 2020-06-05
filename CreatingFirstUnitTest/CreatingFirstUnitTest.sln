@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Tests", "Shopp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyLevel", "AssemblyLevel\AssemblyLevel.csproj", "{CD0E1392-36AD-4AF0-9332-F76DB10B0D2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpectedException", "ExpectedException\ExpectedException.csproj", "{66F50F34-55C9-41A9-8FD5-2248ABAF04E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpectedException.Tests", "ExpectedException.Tests\ExpectedException.Tests.csproj", "{19B0425E-1C3B-4C8A-B7C8-5DED098025D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{CD0E1392-36AD-4AF0-9332-F76DB10B0D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD0E1392-36AD-4AF0-9332-F76DB10B0D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD0E1392-36AD-4AF0-9332-F76DB10B0D2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66F50F34-55C9-41A9-8FD5-2248ABAF04E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66F50F34-55C9-41A9-8FD5-2248ABAF04E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66F50F34-55C9-41A9-8FD5-2248ABAF04E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66F50F34-55C9-41A9-8FD5-2248ABAF04E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B0425E-1C3B-4C8A-B7C8-5DED098025D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B0425E-1C3B-4C8A-B7C8-5DED098025D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B0425E-1C3B-4C8A-B7C8-5DED098025D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B0425E-1C3B-4C8A-B7C8-5DED098025D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
