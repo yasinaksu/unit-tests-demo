@@ -29,7 +29,15 @@ namespace ShoppingCart
 
         public void Add(CartItem cartItem)
         {
-            _cartItems.Add(cartItem);
+            var addedCartItem = _cartItems.SingleOrDefault(x => x.Product.ProductId == cartItem.Product.ProductId);
+            if (addedCartItem == null)
+            {
+                _cartItems.Add(cartItem);
+            }
+            else
+            {
+                addedCartItem.Quantity += cartItem.Quantity;
+            }
         }
 
         public void Remove(int productId)

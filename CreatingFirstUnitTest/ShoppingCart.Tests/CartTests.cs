@@ -6,11 +6,11 @@ namespace ShoppingCart.Tests
     [TestClass]
     public class CartTests
     {
-        private CartItem _cartItem;
-        private CartManager _cartManager;
-        
-        [TestInitialize]
-        public void TestInitialize()
+        private static CartItem _cartItem;
+        private static CartManager _cartManager;
+
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
         {
             _cartManager = new CartManager();
             _cartItem = new CartItem
@@ -21,50 +21,44 @@ namespace ShoppingCart.Tests
             _cartManager.Add(_cartItem);
         }
 
-        [TestCleanup]
-        public void TestCleanup()
+        [ClassCleanup]
+        public static void ClassCleanup()
         {
             _cartManager.Clear();
         }
 
         [TestMethod]
-        public void Product_should_be_added_to_cart()
+        public void Sepete_farkli_urunden_bir_adet_eklendiginde_sepetteki_toplam_urun_adeti_ve_eleman_sayisi_bir_artmalidir()
         {
             //Arrange
-            const int expedted = 1;           
+            int toplamAdet = _cartManager.TotalQuantity;
+            int toplamElemanSayisi = _cartManager.TotalItems;
 
             //Act
-            var totalItemCount = _cartManager.TotalItems;
+            _cartManager.Add(new CartItem
+            {
+                Product = new Product { ProductId = 2, ProductName = "Mouse", UnitPrice = 10 },
+                Quantity = 1
+            });
 
             //Assert
-            Assert.AreEqual(expedted, totalItemCount);
+            Assert.AreEqual(toplamAdet+1, _cartManager.TotalQuantity);
+            Assert.AreEqual(toplamElemanSayisi+1, _cartManager.TotalItems);
         }
 
         [TestMethod]
-        public void Product_in_cart_should_be_removed_from_cart()
+        public void Sepette_olan_urunden_bir_adet_eklendiginde_sepetteki_toplam_urun_adeti_bir_artmali_ve_eleman_sayisi_ayni_kalmali()
         {
-            //Arrange           
-            var currentItemCount = _cartManager.TotalItems;
+            //Arrange
+            int toplamAdet = _cartManager.TotalQuantity;
+            int toplamElemanSayisi = _cartManager.TotalItems;
 
             //Act
-            _cartManager.Remove(1);
-            var afterRemoveItemCount = _cartManager.TotalItems;
+            _cartManager.Add(_cartItem);
 
             //Assert
-            Assert.AreEqual(currentItemCount-1, afterRemoveItemCount);
-        }
-
-        [TestMethod]
-        public void cart_should_be_cleanned()
-        {
-            //Arrange           
-
-            //Act
-            _cartManager.Clear();
-
-            //Assert
-            Assert.AreEqual(0, _cartManager.TotalItems);
-            Assert.AreEqual(0, _cartManager.TotalQuantity);
+            Assert.AreEqual(toplamAdet + 1, _cartManager.TotalQuantity);
+            Assert.AreEqual(toplamElemanSayisi, _cartManager.TotalItems);
         }
     }
 }
