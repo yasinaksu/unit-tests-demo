@@ -61,5 +61,29 @@ namespace Asserts.Tests
             Assert.AreEqual(a, b, "AreEqual failed");
             Assert.AreNotSame(a, b, "AreSame failed");
         }
+
+        [TestMethod]
+        public void Using_Inconclusive()
+        {
+            int a = 1;
+            int b = a;
+
+            Assert.AreEqual(a, b);
+            Assert.Inconclusive("test is succed but not enough!");
+        }
+
+        [TestMethod]
+        public void IsInstanceOfType_and_IsNotInstanceOfType()
+        {
+            var number = 3.5m;
+            Assert.IsInstanceOfType(number, typeof(decimal));
+            Assert.IsNotInstanceOfType(number, typeof(int));
+        }
+        [TestMethod]
+        public void IsTrue_and_IsFalse()
+        {
+            Assert.IsTrue(10 % 2 == 0);
+            Assert.IsFalse(10 % 2 == 1);
+        }
     }
 }
