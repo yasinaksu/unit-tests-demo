@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -58,6 +59,31 @@ namespace CollectionsAssert.Tests
             newUsers.Add("Yasin");
 
             CollectionAssert.AreNotEquivalent(_users, newUsers);
+        }
+
+        [TestMethod]
+        public void All_items_must_be_different_from_null()
+        {
+            //_users.Add(null);
+            CollectionAssert.AllItemsAreNotNull(_users);
+        }
+
+        [TestMethod]
+        public void All_items_must_be_unique()
+        {
+            //_users.Add("Engin");
+            CollectionAssert.AllItemsAreUnique(_users);
+        }
+
+        [TestMethod]
+        public void All_items_must_have_same_type()
+        {
+            var list = new ArrayList()
+            {
+                "Ev","Araba","Kitap"
+            };
+            //list.Add(15);
+            CollectionAssert.AllItemsAreInstancesOfType(list,typeof(string));
         }
     }
 }
