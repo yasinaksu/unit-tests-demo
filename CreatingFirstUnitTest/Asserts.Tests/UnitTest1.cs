@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Asserts.Tests
@@ -84,6 +85,30 @@ namespace Asserts.Tests
         {
             Assert.IsTrue(10 % 2 == 0);
             Assert.IsFalse(10 % 2 == 1);
+        }
+        [TestMethod]
+        public void IsNull_IsNotNull()
+        {
+            var names = new string[] { "Ali", "Yasin", "Betül" };
+            var startWithA = names.FirstOrDefault(x => x.StartsWith("A"));
+            var startWithC = names.FirstOrDefault(x => x.StartsWith("C"));
+
+            Assert.IsNull(startWithC,"isnull failed");
+            Assert.IsNotNull(startWithA,"isnotnull failed");
+        }
+
+        [TestMethod]
+        public void Assert_Fail()
+        {
+            try
+            {
+                int number = 10;
+                int result = number / 0;
+            }
+            catch (DivideByZeroException)
+            {
+                Assert.Fail("test fail");
+            }
         }
     }
 }
